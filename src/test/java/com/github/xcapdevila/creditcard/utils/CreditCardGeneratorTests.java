@@ -4,16 +4,21 @@ import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.platform.commons.util.StringUtils;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -29,6 +34,7 @@ class CreditCardGeneratorTests {
   private static final Random RANDOM = new Random();
 
   private LuhnAlgorithmValidator luhnAlgorithmValidator;
+
   private List<CreditCardIssuer> creditCardIssuers;
 
   @BeforeEach
@@ -68,12 +74,39 @@ class CreditCardGeneratorTests {
     creditCardIssuers.add(creditCardIssuerNoLuhn);
   }
 
-  private Integer getNextPositiveRandom(int bound) {
+  private static Integer getNextPositiveRandom(int bound) {
     int nextInt;
     do {
       nextInt = RANDOM.nextInt(bound);
     } while (nextInt < 1);
     return nextInt;
+  }
+
+  private static Stream<Arguments> invalidConstructorArgs() {
+    val creditCardIssuers = new ArrayList<CreditCardIssuer>();
+    val creditCardIssuerLuhn = CreditCardIssuer
+        .create()
+        .cards(1)
+        .name("any")
+        .panRegex("any")
+        .cvvRegex("any")
+        .expDateRegex("any")
+        .luhnCompliant((pan) -> true)
+        .build();
+    creditCardIssuers.add(creditCardIssuerLuhn);
+    return Stream.of(
+        Arguments.of(null, null),
+        Arguments.of(Collections.emptyList(), null),
+        Arguments.of(creditCardIssuers, null),
+        Arguments.of(creditCardIssuers, ""),
+        Arguments.of(creditCardIssuers, "  ")
+    );
+  }
+
+  @ParameterizedTest
+  @MethodSource("invalidConstructorArgs")
+  void invalidConstructorArgsThrowException(final List<CreditCardIssuer> creditCardIssuers, final String outputPattern) {
+    assertThrows(RuntimeException.class, () -> new CreditCardGenerator(creditCardIssuers, outputPattern));
   }
 
   @ParameterizedTest
