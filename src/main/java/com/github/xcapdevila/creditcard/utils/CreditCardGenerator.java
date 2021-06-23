@@ -59,7 +59,7 @@ public class CreditCardGenerator {
             cardInfo = ISSUER_NAME_REGEX.matcher(cardInfo).replaceAll(creditCardIssuer.getName());
 
             isValid = cards.add(cardInfo);
-            if (log.isDebugEnabled() && isValid) {
+            if (isValid) {
               log.debug("Generated card: {}", cardInfo);
             }
           }
