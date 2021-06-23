@@ -37,6 +37,35 @@ class CreditCardGeneratorTests {
 
   private List<CreditCardIssuer> creditCardIssuers;
 
+  private static Integer getNextPositiveRandom(int bound) {
+    int nextInt;
+    do {
+      nextInt = RANDOM.nextInt(bound);
+    } while (nextInt < 1);
+    return nextInt;
+  }
+
+  private static Stream<Arguments> invalidConstructorArgs() {
+    val creditCardIssuers = new ArrayList<CreditCardIssuer>();
+    val creditCardIssuerLuhn = CreditCardIssuer
+        .create()
+        .cards(1)
+        .name("any")
+        .panRegex("any")
+        .cvvRegex("any")
+        .expDateRegex("any")
+        .luhnCompliant((pan) -> true)
+        .build();
+    creditCardIssuers.add(creditCardIssuerLuhn);
+    return Stream.of(
+        Arguments.of(null, null),
+        Arguments.of(Collections.emptyList(), null),
+        Arguments.of(creditCardIssuers, null),
+        Arguments.of(creditCardIssuers, ""),
+        Arguments.of(creditCardIssuers, "  ")
+    );
+  }
+
   @BeforeEach
   void setup() {
     luhnAlgorithmValidator = new LuhnAlgorithmValidator();
@@ -72,35 +101,6 @@ class CreditCardGeneratorTests {
         .luhnCompliant((pan) -> true)
         .build();
     creditCardIssuers.add(creditCardIssuerNoLuhn);
-  }
-
-  private static Integer getNextPositiveRandom(int bound) {
-    int nextInt;
-    do {
-      nextInt = RANDOM.nextInt(bound);
-    } while (nextInt < 1);
-    return nextInt;
-  }
-
-  private static Stream<Arguments> invalidConstructorArgs() {
-    val creditCardIssuers = new ArrayList<CreditCardIssuer>();
-    val creditCardIssuerLuhn = CreditCardIssuer
-        .create()
-        .cards(1)
-        .name("any")
-        .panRegex("any")
-        .cvvRegex("any")
-        .expDateRegex("any")
-        .luhnCompliant((pan) -> true)
-        .build();
-    creditCardIssuers.add(creditCardIssuerLuhn);
-    return Stream.of(
-        Arguments.of(null, null),
-        Arguments.of(Collections.emptyList(), null),
-        Arguments.of(creditCardIssuers, null),
-        Arguments.of(creditCardIssuers, ""),
-        Arguments.of(creditCardIssuers, "  ")
-    );
   }
 
   @ParameterizedTest

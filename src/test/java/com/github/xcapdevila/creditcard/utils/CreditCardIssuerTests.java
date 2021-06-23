@@ -28,7 +28,7 @@ class CreditCardIssuerTests {
         Arguments.of("name", 1, "panRegex", "cvvRegex", "", null),
         Arguments.of("name", 1, "panRegex", "cvvRegex", " ", null),
         Arguments.of("name", 1, "panRegex", "cvvRegex", "expDateRegex", null)
-        );
+    );
   }
 
   @ParameterizedTest
