@@ -54,7 +54,7 @@ class CreditCardGeneratorTests {
         .panRegex("any")
         .cvvRegex("any")
         .expDateRegex("any")
-        .luhnCompliant((pan) -> true)
+        .luhnCompliance((pan) -> true)
         .build();
     creditCardIssuers.add(creditCardIssuerLuhn);
     return Stream.of(
@@ -78,7 +78,7 @@ class CreditCardGeneratorTests {
         .panRegex("^4[0-9]{15}$")
         .cvvRegex("^[0-9]{3}$")
         .expDateRegex("^(0[1-9]|1[0-2])(2[2-7])$")
-        .luhnCompliant((pan) -> luhnAlgorithmValidator.isValid(pan))
+        .luhnCompliance((pan) -> luhnAlgorithmValidator.isValid(pan))
         .build();
     creditCardIssuers.add(creditCardIssuerLuhn);
     val creditCardIssuerLuhn2 = CreditCardIssuer
@@ -88,7 +88,7 @@ class CreditCardGeneratorTests {
         .panRegex("^5[1-5][0-9]{14}$")
         .cvvRegex("^[0-9]{3}$")
         .expDateRegex("^(0[1-9]|1[0-2])(2[2-5])$")
-        .luhnCompliant((pan) -> luhnAlgorithmValidator.isValid(pan))
+        .luhnCompliance((pan) -> luhnAlgorithmValidator.isValid(pan))
         .build();
     creditCardIssuers.add(creditCardIssuerLuhn2);
     val creditCardIssuerNoLuhn = CreditCardIssuer
@@ -98,7 +98,7 @@ class CreditCardGeneratorTests {
         .panRegex("^3[47][0-9]{13}$")
         .cvvRegex("^[0-9]{4}$")
         .expDateRegex("^(0[1-9]|1[0-2])(2[3-8])$")
-        .luhnCompliant((pan) -> true)
+        .luhnCompliance((pan) -> true)
         .build();
     creditCardIssuers.add(creditCardIssuerNoLuhn);
   }

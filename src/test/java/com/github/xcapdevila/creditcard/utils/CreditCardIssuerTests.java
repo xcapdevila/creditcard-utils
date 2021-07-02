@@ -42,7 +42,7 @@ class CreditCardIssuerTests {
         .panRegex(panRegex)
         .cvvRegex(cvvRegex)
         .expDateRegex(expDateRegex)
-        .luhnCompliant(luhnCompliant)
+        .luhnCompliance(luhnCompliant)
         .build());
   }
 

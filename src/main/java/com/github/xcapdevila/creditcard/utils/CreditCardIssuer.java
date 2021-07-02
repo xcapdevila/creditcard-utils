@@ -22,10 +22,10 @@ public final class CreditCardIssuer {
   @Getter
   private final String expDateRegex;
 
-  private final LuhnCompliance luhnCompliant;
+  private final LuhnCompliance luhnCompliance;
 
   private CreditCardIssuer(String name, Integer cards, String panRegex, String cvvRegex, String expDateRegex,
-      LuhnCompliance luhnCompliant) {
+      LuhnCompliance luhnCompliance) {
 
     if (StringUtils.isBlank(name)) {
       throw new RuntimeException("'name' is blank");
@@ -42,8 +42,8 @@ public final class CreditCardIssuer {
     if (StringUtils.isBlank(expDateRegex)) {
       throw new RuntimeException("'expDateRegex' is blank");
     }
-    if (Objects.isNull(luhnCompliant)) {
-      throw new RuntimeException("'luhnCompliant' is null");
+    if (Objects.isNull(luhnCompliance)) {
+      throw new RuntimeException("'luhnCompliance' is null");
     }
 
     this.name = name;
@@ -51,11 +51,11 @@ public final class CreditCardIssuer {
     this.panRegex = panRegex;
     this.cvvRegex = cvvRegex;
     this.expDateRegex = expDateRegex;
-    this.luhnCompliant = luhnCompliant;
+    this.luhnCompliance = luhnCompliance;
   }
 
   public boolean isLuhnCompliant(final String pan) {
-    return luhnCompliant.validate(pan);
+    return luhnCompliance.validate(pan);
   }
 
 }
