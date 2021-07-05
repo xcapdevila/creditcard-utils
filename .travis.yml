@@ -17,7 +17,7 @@ addons:
     organization: "xcapdevila"
 
 script:
-  - ./mvnw clean verify package sonar:sonar -Dsonar.projectKey=xcapdevila_creditcard-utils
+  - ./mvnw clean verify package sonar:sonar -Dsonar.projectKey=xcapdevila_creditcard-utils jacoco:report
 
 after_success:
   - ./mvnw clean test jacoco:report coveralls:report
