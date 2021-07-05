@@ -35,7 +35,7 @@ class CreditCardIssuerTests {
   @MethodSource("invalidConstructorArgs")
   void invalidConstructorArgsThrowException(final String name, final Integer cards, final String panRegex, final String cvvRegex, final String expDateRegex,
       final LuhnCompliance luhnCompliant) {
-    assertThrows(RuntimeException.class, () -> CreditCardIssuer
+    assertThrows(IllegalArgumentException.class, () -> CreditCardIssuer
         .create()
         .name(name)
         .cards(cards)

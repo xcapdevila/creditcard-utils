@@ -31,7 +31,7 @@ class LuhnAlgorithmValidatorTests {
 
   @Test
   void givenAMalformedCreditCardLuhnThrowsException() {
-    assertThrows(RuntimeException.class, () -> luhnAlgorithmValidator.isValid(MALFORMED_PAN));
+    assertThrows(IllegalArgumentException.class, () -> luhnAlgorithmValidator.isValid(MALFORMED_PAN));
   }
 
 }

@@ -27,10 +27,10 @@ public class CreditCardGenerator {
 
   public CreditCardGenerator(final List<CreditCardIssuer> creditCardIssuers, final String outputPattern) {
     if (Objects.isNull(creditCardIssuers) || creditCardIssuers.isEmpty()) {
-      throw new RuntimeException("'creditCardIssuers' is empty");
+      throw new IllegalArgumentException("'creditCardIssuers' is empty");
     }
     if (StringUtils.isBlank(outputPattern)) {
-      throw new RuntimeException("'outputPattern' is blank");
+      throw new IllegalArgumentException("'outputPattern' is blank");
     }
     this.creditCardIssuers = new ArrayList<>(creditCardIssuers);
     this.outputPattern = outputPattern;

@@ -28,22 +28,22 @@ public final class CreditCardIssuer {
       LuhnCompliance luhnCompliance) {
 
     if (StringUtils.isBlank(name)) {
-      throw new RuntimeException("'name' is blank");
+      throw new IllegalArgumentException("'name' is blank");
     }
     if (Objects.isNull(cards) || cards < 1) {
-      throw new RuntimeException("'cards' is lower than 1");
+      throw new IllegalArgumentException("'cards' is lower than 1");
     }
     if (StringUtils.isBlank(panRegex)) {
-      throw new RuntimeException("'panRegex' is blank");
+      throw new IllegalArgumentException("'panRegex' is blank");
     }
     if (StringUtils.isBlank(cvvRegex)) {
-      throw new RuntimeException("'cvvRegex' is blank");
+      throw new IllegalArgumentException("'cvvRegex' is blank");
     }
     if (StringUtils.isBlank(expDateRegex)) {
-      throw new RuntimeException("'expDateRegex' is blank");
+      throw new IllegalArgumentException("'expDateRegex' is blank");
     }
     if (Objects.isNull(luhnCompliance)) {
-      throw new RuntimeException("'luhnCompliance' is null");
+      throw new IllegalArgumentException("'luhnCompliance' is null");
     }
 
     this.name = name;

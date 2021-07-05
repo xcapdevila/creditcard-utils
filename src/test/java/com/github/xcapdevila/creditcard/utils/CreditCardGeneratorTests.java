@@ -106,7 +106,7 @@ class CreditCardGeneratorTests {
   @ParameterizedTest
   @MethodSource("invalidConstructorArgs")
   void invalidConstructorArgsThrowException(final List<CreditCardIssuer> creditCardIssuers, final String outputPattern) {
-    assertThrows(RuntimeException.class, () -> new CreditCardGenerator(creditCardIssuers, outputPattern));
+    assertThrows(IllegalArgumentException.class, () -> new CreditCardGenerator(creditCardIssuers, outputPattern));
   }
 
   @ParameterizedTest

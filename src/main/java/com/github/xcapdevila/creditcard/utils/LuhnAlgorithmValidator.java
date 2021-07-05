@@ -14,7 +14,7 @@ public class LuhnAlgorithmValidator {
 
   public boolean isValid(final String pan) {
     if (!ONLY_DIGITS.matcher(pan).matches()) {
-      throw new RuntimeException("Luhn requires an only digits pan to be validated");
+      throw new IllegalArgumentException("Luhn requires an only digits pan to be validated");
     }
     int digits = pan.length();
     int oddOrEven = digits & 1;
