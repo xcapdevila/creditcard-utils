@@ -1,0 +1,23 @@
+arch: amd64
+
+language: java
+
+jdk:
+  - openjdk11
+
+cache:
+  directories:
+    - $HOME/.m2
+
+env:
+  - CI=true
+
+addons:
+  sonarcloud:
+    organization: "xcapdevila"
+
+script:
+  - ./mvnw clean verify package sonar:sonar -Dsonar.projectKey=xcapdevila_creditcard-utils
+
+after_success:
+  - ./mvnw clean test jacoco:report coveralls:report
