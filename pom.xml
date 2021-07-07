@@ -49,9 +49,10 @@
 
     <slf4j-api.version>2.0.0-alpha1</slf4j-api.version>
     <rgxgen.version>1.3</rgxgen.version>
+    <commons-lang3.version>3.12.0</commons-lang3.version>
 
     <lombok.version>1.18.20</lombok.version>
-    <code-coverage.line-covered-ratio.min>0.80</code-coverage.line-covered-ratio.min>
+    <code-coverage.line-covered-ratio.min>0.99</code-coverage.line-covered-ratio.min>
     <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
     <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
     <junit.jupiter.version>5.7.2</junit.jupiter.version>
@@ -78,6 +79,12 @@
       <groupId>com.github.curious-odd-man</groupId>
       <version>${rgxgen.version}</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons-lang3.version}</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -89,6 +96,7 @@
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
       <version>${junit.jupiter.version}</version>
+      <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
     <dependency>

@@ -7,9 +7,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Pattern;
+
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
-import org.junit.platform.commons.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author Xavier Capdevila Estevez on 28/5/21.

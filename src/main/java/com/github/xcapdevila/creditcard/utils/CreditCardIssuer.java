@@ -3,7 +3,7 @@ package com.github.xcapdevila.creditcard.utils;
 import java.util.Objects;
 import lombok.Builder;
 import lombok.Getter;
-import org.junit.platform.commons.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author Xavier Capdevila Estevez on 20/6/21.
