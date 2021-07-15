@@ -50,11 +50,11 @@
     <slf4j-api.version>2.0.0-alpha1</slf4j-api.version>
     <rgxgen.version>1.3</rgxgen.version>
     <commons-lang3.version>3.12.0</commons-lang3.version>
+    <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
 
     <lombok.version>1.18.20</lombok.version>
     <code-coverage.line-covered-ratio.min>0.80</code-coverage.line-covered-ratio.min>
     <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
-    <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
     <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
     <junit.jupiter.version>5.7.2</junit.jupiter.version>
     <mockito-core.version>3.11.1</mockito-core.version>
@@ -86,6 +86,13 @@
       <artifactId>commons-lang3</artifactId>
       <version>${commons-lang3.version}</version>
     </dependency>
+    <!-- Required for Coveralls to work -->
+    <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>${jaxb-api.version}</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -111,14 +118,6 @@
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
       <version>${mockito-core.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <!-- Required for Coveralls to work -->
-    <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
-    <dependency>
-      <groupId>javax.xml.bind</groupId>
-      <artifactId>jaxb-api</artifactId>
-      <version>${jaxb-api.version}</version>
       <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.pitest/pitest-parent -->
