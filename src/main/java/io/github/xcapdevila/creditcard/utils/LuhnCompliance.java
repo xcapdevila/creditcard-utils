@@ -1,4 +1,4 @@
-package com.github.xcapdevila.creditcard.utils;
+package io.github.xcapdevila.creditcard.utils;
 
 /**
  * @author Xavier Capdevila Estevez on 21/6/21.

@@ -1,4 +1,4 @@
-package com.github.xcapdevila.creditcard.utils;
+package io.github.xcapdevila.creditcard.utils;
 
 import java.util.Objects;
 import lombok.Builder;

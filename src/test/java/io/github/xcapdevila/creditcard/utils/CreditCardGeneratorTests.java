@@ -1,4 +1,4 @@
-package com.github.xcapdevila.creditcard.utils;
+package io.github.xcapdevila.creditcard.utils;
 
 import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertAll;

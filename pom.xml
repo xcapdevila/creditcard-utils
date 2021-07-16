@@ -3,7 +3,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.xcapdevila</groupId>
+  <groupId>io.github.xcapdevila</groupId>
   <artifactId>creditcard-utils</artifactId>
   <version>0.0.2-SNAPSHOT</version>
 
@@ -20,6 +20,7 @@
 
   <developers>
     <developer>
+      <id>xcapdevila</id>
       <name>Xavier Capdevila</name>
       <organizationUrl>https://github.com/xcapdevila</organizationUrl>
     </developer>
@@ -229,8 +230,8 @@
             </dependencies>
             <configuration>
               <targetClasses>
-                <param>com.github.xcapdevila.creditcard.utils.CreditCardGenerator</param>
-                <param>com.github.xcapdevila.creditcard.utils.LuhnAlgorithmValidator</param>
+                <param>io.github.xcapdevila.creditcard.utils.CreditCardGenerator</param>
+                <param>io.github.xcapdevila.creditcard.utils.LuhnAlgorithmValidator</param>
               </targetClasses>
               <targetTests>
                 <param>com.github.xcapdevila.creditcard.utils.*</param>
@@ -284,6 +285,14 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
+              <configuration>
+                <!-- Prevent gpg from using pinentry programs.
+                Fixes: gpg: signing failed: Inappropriate ioctl for device -->
+                <gpgArguments>
+                  <arg>--pinentry-mode</arg>
+                  <arg>loopback</arg>
+                </gpgArguments>
+              </configuration>
               </execution>
             </executions>
           </plugin>

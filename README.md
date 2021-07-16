@@ -19,7 +19,7 @@ Credit card issuers list to be generated including:
 - **PAN Regex:** regular expression to generate the PAN value
 - **CVV Regex:** regular expression to generate the CVV value
 - **Expiration Date Regex:** regular expression to generate the expiration date value
-- **Luhn Compliant:** a [LuhnCompliance](src/main/java/com/github/xcapdevila/creditcard/utils/LuhnCompliance.java) functional interface instance (See also [LuhnAlgorithmValidator](src/main/java/com/github/xcapdevila/creditcard/utils/LuhnAlgorithmValidator.java))
+- **Luhn Compliant:** a [LuhnCompliance](src/main/java/io/github/xcapdevila/creditcard/utils/LuhnCompliance.java) functional interface instance (See also [LuhnAlgorithmValidator](src/main/java/io/github/xcapdevila/creditcard/utils/LuhnAlgorithmValidator.java))
 ```
 creditCardIssuers[0].name=VISA
 creditCardIssuers[0].cards=100

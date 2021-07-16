@@ -1,4 +1,4 @@
-package com.github.xcapdevila.creditcard.utils;
+package io.github.xcapdevila.creditcard.utils;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
