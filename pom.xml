@@ -5,7 +5,7 @@
 
   <groupId>io.github.xcapdevila</groupId>
   <artifactId>creditcard-utils</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>1.0</version>
 
   <name>${project.groupId}:${project.artifactId}</name>
   <description>CreditCard Toolbox</description>
