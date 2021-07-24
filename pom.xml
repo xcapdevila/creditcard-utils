@@ -22,7 +22,14 @@
     <developer>
       <id>xcapdevila</id>
       <name>Xavier Capdevila</name>
-      <organizationUrl>https://github.com/xcapdevila</organizationUrl>
+      <url>https://github.com/xcapdevila</url>
+      <roles>
+        <role>project owner</role>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <organization>capdevila.io</organization>
+      <organizationUrl>https://capdevila.io</organizationUrl>
     </developer>
   </developers>
 
