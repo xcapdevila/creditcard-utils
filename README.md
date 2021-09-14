@@ -2,7 +2,7 @@
 
 CreditCard Toolbox.
 
-[![Build Status](https://travis-ci.com/xcapdevila/creditcard-utils.svg)](https://travis-ci.com/xcapdevila/creditcard-utils)
+[![Build Status](https://app.travis-ci.com/xcapdevila/creditcard-utils.svg?branch=main)](https://app.travis-ci.com/xcapdevila/creditcard-utils)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=xcapdevila_creditcard-utils&metric=alert_status)](https://sonarcloud.io/dashboard?id=xcapdevila_creditcard-utils)
 [![Coverage Status](https://coveralls.io/repos/github/xcapdevila/creditcard-utils/badge.svg)](https://coveralls.io/github/xcapdevila/creditcard-utils)
 [![Known Vulnerabilities](https://snyk.io/test/github/xcapdevila/creditcard-utils/badge.svg)](https://snyk.io/test/github/xcapdevila/creditcard-utils)
