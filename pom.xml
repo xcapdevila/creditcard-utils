@@ -57,7 +57,7 @@
 
     <slf4j-api.version>2.0.0-alpha1</slf4j-api.version>
     <rgxgen.version>1.3</rgxgen.version>
-    <commons-lang3.version>3.12.0</commons-lang3.version>
+    <commons-lang3.version>3.18.0</commons-lang3.version>
 
     <lombok.version>1.18.20</lombok.version>
     <code-coverage.line-covered-ratio.min>0.80</code-coverage.line-covered-ratio.min>
